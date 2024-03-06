@@ -1,0 +1,122 @@
+Ejercicios C#
+
+Ejercicio #1
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Bienvenido al programa de calculo de promedio final de ventas");
+
+        
+        Console.Write("Ingrese su nombre: ");
+        string nombre = Console.ReadLine();
+
+        Console.Write("Ingrese su apellido: ");
+        string apellido = Console.ReadLine();
+
+      
+        const int diasDelMes = 30;
+        double totalVentas = 0;
+
+      
+        for (int dia = 1; dia <= diasDelMes; dia++)
+        {
+            Console.Write($"Ingrese las ventas del dia {dia}: ");
+            double ventasDia;
+
+            while (!double.TryParse(Console.ReadLine(), out ventasDia))
+            {
+                Console.WriteLine("Por favor, ingrese un valor numérico válido.");
+            }
+
+            totalVentas += ventasDia;
+        }
+
+
+        double promedioFinalVentas = totalVentas / diasDelMes;
+
+        
+        Console.WriteLine($"\nResumen de ventas para {nombre} {apellido}:");
+        Console.WriteLine($"Días de mes alcanzados: {diasDelMes}");
+        Console.WriteLine($"Total de ventas: {totalVentas}");
+        Console.WriteLine($"Promedio final de ventas: {promedioFinalVentas}");
+
+        Console.WriteLine("\n¡Gracias por utilizar el programa!");
+    }
+}
+
+
+
+Ejercicio #2
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Calculadora de sueldo neto para empleados de una empresa de calzado");
+
+      
+        Console.Write("Ingrese el sueldo base del empleado: ");
+        double sueldoBase;
+
+        while (!double.TryParse(Console.ReadLine(), out sueldoBase) || sueldoBase < 3300)
+        {
+            Console.WriteLine("Por favor, ingrese un sueldo base válido (mínimo 3300).");
+        }
+
+        
+        double renta = sueldoBase * 0.10;      // 10% de renta
+        double afp = sueldoBase * 0.07;        // 7% de AFP
+        double seguroSocial = sueldoBase * 0.05; // 5% de Seguro Social
+
+        double sueldoNeto = sueldoBase - renta - afp - seguroSocial;
+
+        Console.WriteLine("\nResumen de descuentos y sueldo neto:");
+        Console.WriteLine($"Sueldo Base: {sueldoBase}");
+        Console.WriteLine($"Descuento por Renta (10%): {renta}");
+        Console.WriteLine($"Descuento por AFP (7%): {afp}");
+        Console.WriteLine($"Descuento por Seguro Social (5%): {seguroSocial}");
+        Console.WriteLine($"Sueldo Neto a Pagar: {sueldoNeto}");
+
+        Console.WriteLine("\n¡Gracias por utilizar el programa!");
+    }
+}
+
+Ejercicio 3
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Conversor de distancias: kilómetros a metros, yardas y varas");
+
+        
+        Console.Write("Ingrese la cantidad en kilometros: ");
+        double kilometros;
+
+        while (!double.TryParse(Console.ReadLine(), out kilometros) || kilometros < 0)
+        {
+            Console.WriteLine("Por favor, ingrese una cantidad válida de kilometros (mayor o igual a 0).");
+        }
+
+
+        double metros = kilometros * 1000;                    // 1 kilómetro = 1000 metros
+        double yardas = metros / 1.09361;                     // 1 metro = 1.09361 yardas
+        double varas = metros / 1.1963;                       // 1 metro = 1.1963 varas
+
+
+        Console.WriteLine($"\nResultados para {kilometros} kilometros:");
+        Console.WriteLine($"En metros: {metros} metros");
+        Console.WriteLine($"En yardas: {yardas} yardas");
+        Console.WriteLine($"En varas: {varas} varas");
+
+        Console.WriteLine("\n¡Gracias por utilizar el programa!");
+    }
+}
